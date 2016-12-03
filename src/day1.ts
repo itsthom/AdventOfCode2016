@@ -1,4 +1,4 @@
-import {FileReader} from "./reader";
+import {getInput} from "./reader";
 
 namespace Day1 {
 
@@ -15,12 +15,8 @@ namespace Day1 {
 	let thePlacesIveBeen: Address[] = [];
 	let currentLocation = new Address(0, 0);
 
-	function begin(filename: string) : void {
-		let reader = new FileReader();
-		let input = reader.getInput(filename)[0].split(", ");
-
+	function begin(input: string[]) : void {
 		let facing = Facing.North;
-
 		for (let i = 0; i < input.length; i++) {
 			facing = updateFacing(input[i], facing);
 			if (walkToTargetLocation(input[i], facing))
@@ -67,5 +63,5 @@ namespace Day1 {
 		}
 	}
 
-	begin("day1.txt");
+	begin(getInput("day1.txt")[0].split(", "));
 }

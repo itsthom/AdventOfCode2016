@@ -1,4 +1,4 @@
-import {FileReader} from "./reader";
+import {getInput} from "./reader";
 
 namespace Day2 {
 
@@ -18,8 +18,7 @@ namespace Day2 {
 		"D": {"U":"B", "L":"D", "R":"D", "D":"D"}
 	};
 
-	function begin(filename: string) {
-		let input = new FileReader().getInput(filename);
+	function findKeys(input: string[]) {
 		let currentKey = "5";
 		for (let i = 0; i < input.length; i++) {
 			for (let j = 0; j < input[i].length; j++) {
@@ -29,5 +28,5 @@ namespace Day2 {
 		}
 	}
 
-	begin("day2.txt");
+	findKeys(getInput("day2.txt"));
 }
