@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": ["*.js"],
+			"folder_exclude_patterns": ["node_modules", "typings"]
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "advent ts",
+			"shell_cmd": "tsc $file && node $file_base_name"
+		}
+	]
+}

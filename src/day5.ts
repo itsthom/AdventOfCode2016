@@ -1,5 +1,4 @@
 import {Md5} from 'ts-md5/dist/md5';
-import {getInput} from "./reader";
 
 namespace Day5 {
 
