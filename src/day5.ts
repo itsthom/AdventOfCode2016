@@ -1,8 +1,8 @@
-import {Md5} from 'ts-md5/dist/md5';
+import { Md5 } from 'ts-md5/dist/md5';
 
 namespace Day5 {
 
-	function findPasswordPart1(input: string) : void {
+	function findPasswordPart1(input: string): void {
 		let password = "";
 		let increment = 0;
 		while (password.length < 8) {
@@ -15,7 +15,7 @@ namespace Day5 {
 		console.log(`part 1 password: ${password}`);
 	}
 
-	function findPasswordPart2(input: string) : void {
+	function findPasswordPart2(input: string): void {
 		let password = "        ";
 		let increment = 0;
 		let foundChars = 0;

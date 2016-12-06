@@ -1,4 +1,4 @@
-import {getInput} from "./reader";
+import { getInput } from "./reader";
 
 namespace Day1 {
 
@@ -15,7 +15,7 @@ namespace Day1 {
 	let thePlacesIveBeen: Address[] = [];
 	let currentLocation = new Address(0, 0);
 
-	function begin(input: string[]) : void {
+	function begin(input: string[]): void {
 		let facing = Facing.North;
 		for (let i = 0; i < input.length; i++) {
 			facing = updateFacing(input[i], facing);
@@ -26,7 +26,7 @@ namespace Day1 {
 		console.log(`Ended up at (${currentLocation.x}, ${currentLocation.y}), ${distance} blocks from where I started.`);
 	}
 
-	function walkToTargetLocation(input: string, facing: Facing) : boolean {
+	function walkToTargetLocation(input: string, facing: Facing): boolean {
 		let steps = parseInt(input.substr(1));
 		for (let i = 0; i < steps; i++) {
 			currentLocation = step(facing, currentLocation);
@@ -38,13 +38,13 @@ namespace Day1 {
 		return false;
 	}
 
-	function iveBeenHereBefore(location: Address) : boolean {
-		return thePlacesIveBeen.some(function(value: Address) : boolean {
+	function iveBeenHereBefore(location: Address): boolean {
+		return thePlacesIveBeen.some(function(value: Address): boolean {
 			return value.x === location.x && value.y === location.y;
 		})
 	}
 
-	function step(facing: Facing, location: Address) : Address {
+	function step(facing: Facing, location: Address): Address {
 		switch (facing) {
 			case Facing.North: return new Address(location.x, location.y + 1);
 			case Facing.South: return new Address(location.x, location.y - 1);
@@ -53,7 +53,7 @@ namespace Day1 {
 		}
 	}
 
-	function updateFacing(input: string, facing: Facing) : Facing {
+	function updateFacing(input: string, facing: Facing): Facing {
 		let right = input.substr(0, 1) === "R";
 		switch (facing) {
 			case Facing.North: return right ? Facing.East : Facing.West;

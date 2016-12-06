@@ -1,4 +1,4 @@
-import {getInput} from "./reader";
+import { getInput } from "./reader";
 
 namespace Day3 {
 
@@ -13,7 +13,7 @@ namespace Day3 {
 			&& lengths[1] + lengths[2] > lengths[0];
 	}
 
-	function countTrianglesPart1(input: string[]) : void {
+	function countTrianglesPart1(input: string[]): void {
 		let count = input.map(row => isTriangle(getLengthsFromRow(row)) ? 1 : 0).reduce((a, b) => a + b);
 		console.log(`Part1: Found ${count} triangles in ${input.length} sets of input.`);
 	}

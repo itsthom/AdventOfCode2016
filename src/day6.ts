@@ -1,12 +1,12 @@
-import {getInput} from "./reader";
+import { getInput } from "./reader";
 
 namespace Day6 {
-	
+
 	function transpose(matrix: string[][]): string[][] {
 		return matrix[0].map((_, col) => matrix.map((row) => row[col]));
 	}
 
-	function countAndSortLetters(letters: string[]) : [string, number][] {
+	function countAndSortLetters(letters: string[]): [string, number][] {
 		let counts = {};
 		for (let i = 0; i < letters.length; i++) {
 			if (counts[letters[i]] === undefined) {
@@ -26,7 +26,7 @@ namespace Day6 {
 		});
 	}
 
-	function decodeSignal(input: string[]) : void {
+	function decodeSignal(input: string[]): void {
 		let signal = transpose(input.map(x => x.split("")));
 		let message1 = signal.map(x => countAndSortLetters(x)[0][0]).reduce((a, b) => a + b);
 		let message2 = signal.map(x => {

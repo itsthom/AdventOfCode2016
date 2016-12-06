@@ -1,8 +1,8 @@
-import {getInput} from "./reader";
+import { getInput } from "./reader";
 
 namespace Day4 {
 
-	function countLetters(letters: string[]) : any {
+	function countLetters(letters: string[]): any {
 		let counts = {};
 		for (let i = 0; i < letters.length; i++) {
 			if (counts[letters[i]] === undefined) {
@@ -35,11 +35,11 @@ namespace Day4 {
 		return lineIsValidRoom(line) ? parseInt(sectorId) : 0;
 	}
 
-	function sumRooms(input: string[]) : void {
+	function sumRooms(input: string[]): void {
 		let sum = input.map(room => getRoomSum(room)).reduce((a, b) => a + b);
 		console.log(`Sum of valid sector IDs: ${sum}`);
 	}
-	
+
 	function shiftLetter(letter: string, offset: number) {
 		let charCode = letter.charCodeAt(0);
 		if ((charCode >= 97) && (charCode <= 122))
@@ -47,7 +47,7 @@ namespace Day4 {
 		return letter;
 	}
 
-	function decodeRoom(line: string, sector: number) : string {
+	function decodeRoom(line: string, sector: number): string {
 		let result = "";
 		let room = line.match(/^[-a-z]+/)[0].replace(/-/g, " ").trim();
 		for (let i = 0; i < room.length; i++) {
@@ -56,7 +56,7 @@ namespace Day4 {
 		return result;
 	}
 
-	function findNorthPoleStorage(input: string[]) : void {
+	function findNorthPoleStorage(input: string[]): void {
 		let decodedRooms = input.filter(lineIsValidRoom).map(r => {
 			let sector = parseInt(r.match(/\d+/)[0]);
 			return `${sector}: ${decodeRoom(r, sector)}`
